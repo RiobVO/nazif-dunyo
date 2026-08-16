@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nazif Dunyo — концепт сайта
 
-## Getting Started
+Одностраничный showcase на Next.js (App Router) + TypeScript + Tailwind CSS + Framer Motion.
+Бэкенда, CMS и админки нет — это демонстрация дизайна.
 
-First, run the development server:
+Арт-дирекшн и правила проекта: [docs/BRIEF.md](docs/BRIEF.md).
+
+## Запуск
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # продакшн-сборка
+npm run start   # запуск собранного проекта
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Что нужно заменить на реальные данные
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Файл | Что заменить |
+|---|---|
+| `data/decors.ts` | 10 плейсхолдер-декоров (`ND-01`…`ND-10`) на реальный каталог с артикулами |
+| `components/sections/Spec.tsx` → `SPEC_ROWS` | «уточняется» на реальные толщины и форматы из прайса |
+| `data/company.ts` | телефон, адрес и режим работы взяты из открытых справочников — подтвердить; `telegram` — поставить реальный аккаунт |
+| `data/photos.ts` | **временные стоковые кадры (Pexels)** — заменить на съёмку производства и материалов |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Изображения
 
-## Learn More
+Все кадры идут через `components/MaterialFrame.tsx`. Если `src` не передан, рендерится
+плашка с описанием нужного кадра — это одновременно ТЗ фотографу и `alt` будущего фото.
+Бокс и пропорции у плейсхолдера и реального фото совпадают, поэтому замена не сдвигает вёрстку.
 
-To learn more about Next.js, take a look at the following resources:
+Сейчас в `data/photos.ts` и `data/decors.ts` подставлены **стоковые фотографии с Pexels**
+(Pexels License — свободное использование, атрибуция не требуется). Это временные
+референс-кадры для демонстрации, а не фотографии Nazif Dunyo. Вернуть все плейсхолдеры
+обратно можно одной правкой: заставить `px()` в `data/photos.ts` возвращать `undefined`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Описание нужного кадра для съёмки хранится в пропе `frame` каждого `<MaterialFrame>` —
+по нему можно собрать список для фотографа.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Документы
 
-## Deploy on Vercel
+- `docs/BRIEF.md` — арт-дирекшн и правила проекта
+- `docs/hero-variants.html` — четыре отвергнутых варианта первого экрана (открывается в браузере)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Секции
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Hero — кадр-«окно» со сменой материалов
+2. Спецификация — что есть на складе
+3. Четыре поверхности — ЛДСП / ЛМДФ / столешницы / кромка
+4. Декоры — интерактивный выбор
+5. Распил, кромка, подбор — маршрут листа
+6. Мебельным производствам и дизайнерам
+7. Контакты

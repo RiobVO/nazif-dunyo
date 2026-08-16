@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nazif Dunyo — варианты первого экрана</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#14120f;
+  --paper:#f2efe9;
+  --core:#b08454;
+  --graphite:#3a3733;
+  --blade:#7c8482;
+
+  --oak:url("https://images.pexels.com/photos/37225886/pexels-photo-37225886.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  --oak-light:url("https://images.pexels.com/photos/6544938/pexels-photo-6544938.jpeg?auto=compress&cs=tinysrgb&w=1200");
+  --walnut:url("https://images.pexels.com/photos/5225594/pexels-photo-5225594.jpeg?auto=compress&cs=tinysrgb&w=1200");
+  --ash:url("https://images.pexels.com/photos/129721/pexels-photo-129721.jpeg?auto=compress&cs=tinysrgb&w=1200");
+  --white:url("https://images.pexels.com/photos/14583331/pexels-photo-14583331.jpeg?auto=compress&cs=tinysrgb&w=1200");
+  --cashmere:url("https://images.pexels.com/photos/4737954/pexels-photo-4737954.jpeg?auto=compress&cs=tinysrgb&w=1200");
+  --graphite-tex:url("https://images.pexels.com/photos/13778388/pexels-photo-13778388.jpeg?auto=compress&cs=tinysrgb&w=1200");
+  --anthracite:url("https://images.pexels.com/photos/7599717/pexels-photo-7599717.jpeg?auto=compress&cs=tinysrgb&w=1200");
+  --marble:url("https://images.pexels.com/photos/3847492/pexels-photo-3847492.jpeg?auto=compress&cs=tinysrgb&w=1200");
+  --concrete:url("https://images.pexels.com/photos/3964666/pexels-photo-3964666.jpeg?auto=compress&cs=tinysrgb&w=1200");
+  --chip:url("https://images.pexels.com/photos/10838921/pexels-photo-10838921.jpeg?auto=compress&cs=tinysrgb&w=2000");
+  --sheets:url("https://images.pexels.com/photos/7479035/pexels-photo-7479035.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  --pack:url("https://images.pexels.com/photos/5089122/pexels-photo-5089122.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  --saw:url("https://images.pexels.com/photos/37162555/pexels-photo-37162555.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  --store:url("https://images.pexels.com/photos/12278570/pexels-photo-12278570.jpeg?auto=compress&cs=tinysrgb&w=1600");
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:"Golos Text",system-ui,sans-serif;overflow-x:clip}
+
+.mono{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.tag{position:absolute;left:0;top:0;z-index:60;background:var(--core);color:var(--ink);padding:9px 16px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;max-width:min(92vw,760px)}
+.nav-index{position:fixed;right:16px;bottom:16px;z-index:99;display:flex;gap:8px}
+.nav-index a{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--graphite);color:var(--paper);text-decoration:none;font-family:"JetBrains Mono",monospace;font-size:12px;background:rgba(20,18,15,.8)}
+.nav-index a:hover{border-color:var(--core);color:var(--core)}
+
+.variant{position:relative;height:100svh;min-height:640px;overflow:hidden;border-bottom:1px solid var(--graphite)}
+
+/* общий хедер-заглушка */
+.head{position:absolute;inset:38px 0 auto 0;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:22px 40px;mix-blend-mode:difference}
+.head .logo{font-weight:700;letter-spacing:.16em;font-size:15px}
+.head nav{display:flex;gap:26px;font-size:14px;opacity:.85}
+
+/* ---------- A. ПАКЕТ ---------- */
+.pack{display:grid;grid-template-columns:1.15fr .72fr 1.55fr .86fr 1.1fr;height:100%;gap:3px;background:var(--ink)}
+.pack .sheet{position:relative;background-size:cover;background-position:center;transform-origin:bottom}
+.pack .sheet::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,15,.92) 0%,rgba(20,18,15,.15) 55%,rgba(20,18,15,.5) 100%)}
+.pack .s1{background-image:var(--oak);margin-top:0}
+.pack .s2{background-image:var(--white);margin-top:9vh}
+.pack .s3{background-image:var(--walnut);margin-top:-4vh}
+.pack .s4{background-image:var(--graphite-tex);margin-top:14vh}
+.pack .s5{background-image:var(--marble);margin-top:5vh}
+.pack .code{position:absolute;left:12px;top:96px;z-index:20;color:var(--paper);opacity:.65;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em}
+.pack-veil{position:absolute;inset:0;z-index:15;pointer-events:none;background:linear-gradient(to top,rgba(20,18,15,.96) 6%,rgba(20,18,15,.86) 34%,rgba(20,18,15,.1) 72%,rgba(20,18,15,.45) 100%)}
+.pack-type{position:absolute;left:40px;right:40px;bottom:8vh;z-index:20;pointer-events:none}
+.pack-type h1{font-size:clamp(44px,6.4vw,104px);line-height:.9;letter-spacing:-.03em;font-weight:900;max-width:15ch}
+.pack-type .sub{margin-top:18px;font-size:17px;line-height:1.5;color:rgba(242,239,233,.8);max-width:40ch}
+.pack-type .meta{margin-top:22px;display:flex;gap:18px;color:var(--core)}
+.pack-count{position:absolute;right:40px;bottom:8vh;z-index:20;text-align:right;color:var(--blade);line-height:1.9}
+.pack-count b{display:block;color:var(--paper);font-size:15px;font-weight:600;letter-spacing:0;text-transform:none;font-family:"Golos Text",sans-serif}
+
+/* ---------- B. ТОРЕЦ ---------- */
+.slab{position:relative;height:100%;display:grid;grid-template-rows:auto auto 1fr;padding:120px 40px 40px;background:var(--ink)}
+.slab .spec-line{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--graphite);padding-bottom:14px;color:var(--blade)}
+.slab .band{position:relative;height:38vh;min-height:230px;margin:0 -40px;background-image:var(--chip);background-size:cover;background-position:center 42%;filter:saturate(.92)}
+.slab .band::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,rgba(20,18,15,.55),rgba(20,18,15,0) 45%,rgba(20,18,15,.35))}
+.slab .band .edge{position:absolute;left:40px;bottom:16px;color:var(--paper);opacity:.75}
+.slab h1{margin-top:34px;font-size:clamp(48px,8.4vw,142px);line-height:.84;letter-spacing:-.035em;font-weight:900;white-space:nowrap;width:112%}
+.slab .bottom{position:absolute;left:40px;right:40px;bottom:34px;display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+.slab .bottom p{max-width:42ch;font-size:17px;line-height:1.5;color:rgba(242,239,233,.75)}
+.slab .side{position:absolute;right:14px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;color:var(--blade);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.35em;text-transform:uppercase}
+
+/* ---------- C. МАТЕРИАЛ В БУКВАХ ---------- */
+.matter{position:relative;height:100%;background:#0d0c0a;display:flex;flex-direction:column;justify-content:center;padding:0 40px}
+.matter::before{content:"";position:absolute;inset:0;background-image:var(--chip);background-size:cover;background-position:center;opacity:.16;filter:grayscale(.35)}
+.matter::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 20% 40%,rgba(13,12,10,.15),rgba(13,12,10,.95))}
+.matter .inner{position:relative;z-index:5}
+.matter h1{font-size:clamp(54px,12.4vw,210px);line-height:.82;letter-spacing:-.04em;font-weight:900;background-image:var(--oak);background-size:120% auto;background-position:center 38%;-webkit-background-clip:text;background-clip:text;color:transparent}
+.matter h1 span{display:block}
+.matter h1 span:nth-child(2){background-image:var(--marble);-webkit-background-clip:text;background-clip:text;background-size:130% auto}
+.matter h1 span:nth-child(3){font-size:.66em;background-image:var(--anthracite);-webkit-background-clip:text;background-clip:text;background-size:200% auto;background-position:center;color:transparent;-webkit-text-stroke:1px rgba(242,239,233,.55)}
+.matter .under{position:relative;z-index:5;margin-top:40px;display:flex;flex-wrap:wrap;gap:14px 34px;align-items:baseline;border-top:1px solid var(--graphite);padding-top:20px}
+.matter .under p{font-size:17px;color:rgba(242,239,233,.78)}
+.matter .swatches{position:absolute;right:40px;top:50%;transform:translateY(-50%);z-index:6;display:grid;gap:8px}
+.matter .swatches i{display:block;width:56px;height:56px;background-size:cover;background-position:center;border:1px solid rgba(242,239,233,.12)}
+
+/* ---------- D. КАРТА РАСКРОЯ ---------- */
+.cut{position:relative;height:100%;padding:96px 34px 34px;background:var(--paper);color:var(--ink)}
+.cut .grid{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:repeat(8,1fr);gap:6px;height:100%}
+.cut .cell{position:relative;background-size:cover;background-position:center;overflow:hidden}
+.cut .cell .dim{position:absolute;left:8px;bottom:6px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;color:rgba(242,239,233,.85);text-transform:uppercase}
+.cut .c1{grid-column:1/6;grid-row:1/6;background-image:var(--sheets)}
+.cut .c2{grid-column:6/9;grid-row:1/4;background-image:var(--oak)}
+.cut .c3{grid-column:9/13;grid-row:1/3;background-image:var(--marble)}
+.cut .c4{grid-column:9/13;grid-row:3/6;background-image:var(--store)}
+.cut .c5{grid-column:6/9;grid-row:4/6;background-image:var(--anthracite)}
+.cut .type{grid-column:1/10;grid-row:6/9;display:flex;flex-direction:column;justify-content:flex-end;padding-right:20px}
+.cut .type h1{font-size:clamp(40px,5.6vw,92px);line-height:.88;letter-spacing:-.03em;font-weight:900}
+.cut .type .sub{margin-top:14px;font-size:17px;line-height:1.5;color:rgba(20,18,15,.72);max-width:44ch}
+.cut .side{grid-column:10/13;grid-row:6/9;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;text-align:right;gap:8px;color:rgba(20,18,15,.55)}
+.cut .side .accent{color:var(--ink);font-weight:600}
+.cut .plate{position:absolute;left:34px;top:92px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(20,18,15,.45)}
+
+@media (max-width:900px){
+  .head{padding:16px 18px}
+  .head nav{display:none}
+  .variant{height:92svh}
+  .pack{grid-template-columns:1fr .6fr 1.2fr}
+  .pack .s4,.pack .s5{display:none}
+  .pack-count{display:none}
+  .pack-type{left:18px;right:18px;bottom:6vh}
+  .slab{padding:96px 18px 28px}
+  .slab .band{margin:0 -18px;height:30vh}
+  .slab h1{white-space:normal;width:100%}
+  .slab .bottom{left:18px;right:18px;flex-direction:column;align-items:flex-start;gap:16px}
+  .slab .side{display:none}
+  .matter{padding:0 18px}
+  .matter .swatches{display:none}
+  .cut{padding:80px 16px 16px}
+  .cut .grid{grid-template-rows:repeat(10,1fr)}
+  .cut .c1{grid-column:1/8;grid-row:1/5}
+  .cut .c2{grid-column:8/13;grid-row:1/3}
+  .cut .c3{grid-column:8/13;grid-row:3/5}
+  .cut .c4,.cut .c5{display:none}
+  .cut .type{grid-column:1/13;grid-row:5/9;padding-right:0}
+  .cut .side{grid-column:1/13;grid-row:9/11;align-items:flex-start;text-align:left}
+}
+</style>
+</head>
+<body>
+
+<div class="nav-index">
+  <a href="#a" title="Пакет">A</a>
+  <a href="#b" title="Торец">B</a>
+  <a href="#c" title="Материал в буквах">C</a>
+  <a href="#d" title="Карта раскроя">D</a>
+</div>
+
+<!-- ============ A. ПАКЕТ ============ -->
+<section class="variant" id="a">
+  <div class="tag">Вариант A · «Пакет» — экран собран из вертикальных листов разной высоты, как пакет плит на складе</div>
+  <div class="pack">
+    <div class="sheet s1"><span class="code">ND-01 · дуб крафт</span></div>
+    <div class="sheet s2"><span class="code">ND-05 · белый</span></div>
+    <div class="sheet s3"><span class="code">ND-03 · орех</span></div>
+    <div class="sheet s4"><span class="code">ND-07 · графит</span></div>
+    <div class="sheet s5"><span class="code">ND-09 · мрамор</span></div>
+  </div>
+  <div class="pack-veil"></div>
+  <header class="head">
+    <span class="logo">NAZIF DUNYO</span>
+    <nav><span>Материалы</span><span>Декоры</span><span>Услуги</span><span>Производствам</span><span>Контакты</span></nav>
+  </header>
+  <div class="pack-type">
+    <h1>ЛДСП, ЛМДФ,<br>столешницы</h1>
+    <p class="sub">Материалы для мебельного производства. Ташкент, Сергели.</p>
+    <div class="meta mono"><span>Пн–Пт 9:00–18:00</span><span>+998 71 258-07-22</span></div>
+  </div>
+  <div class="pack-count mono">
+    <b>Подбор декора под проект</b>
+    <span>дерево · светлые · тёмные · камень · однотонные</span>
+  </div>
+</section>
+
+<!-- ============ B. ТОРЕЦ ============ -->
+<section class="variant" id="b">
+  <div class="tag">Вариант B · «Торец» — плита лежит поперёк экрана как объект: сверху спецификация, снизу заголовок в обрез</div>
+  <header class="head">
+    <span class="logo">NAZIF DUNYO</span>
+    <nav><span>Материалы</span><span>Декоры</span><span>Услуги</span><span>Производствам</span><span>Контакты</span></nav>
+  </header>
+  <div class="slab">
+    <div class="spec-line mono">
+      <span>ЛДСП · ЛМДФ · столешницы · кромка</span>
+      <span>2800 × 2070 · 16 / 18 мм</span>
+    </div>
+    <div class="band"><span class="edge mono">срез плиты · 18 мм</span></div>
+    <h1>ЛДСП, ЛМДФ,<br>столешницы</h1>
+    <div class="bottom">
+      <p>Материалы для мебельного производства. Склад в Сергели, распил в размер, подбор декоров.</p>
+      <div class="mono" style="color:var(--core);display:flex;gap:18px;white-space:nowrap">
+        <span>Пн–Пт 9:00–18:00</span><span>+998 71 258-07-22</span>
+      </div>
+    </div>
+    <div class="side">Ташкент · Сергели</div>
+  </div>
+</section>
+
+<!-- ============ C. МАТЕРИАЛ В БУКВАХ ============ -->
+<section class="variant" id="c">
+  <div class="tag">Вариант C · «Материал в буквах» — заголовок залит текстурой: дерево / камень / матовый чёрный</div>
+  <header class="head">
+    <span class="logo">NAZIF DUNYO</span>
+    <nav><span>Материалы</span><span>Декоры</span><span>Услуги</span><span>Производствам</span><span>Контакты</span></nav>
+  </header>
+  <div class="matter">
+    <div class="inner">
+      <h1><span>ЛДСП</span><span>ЛМДФ</span><span>СТОЛЕШНИЦЫ</span></h1>
+    </div>
+    <div class="under">
+      <p>Материалы для мебельного производства. Ташкент, Сергели.</p>
+      <span class="mono" style="color:var(--core)">Пн–Пт 9:00–18:00</span>
+      <span class="mono" style="color:var(--core)">+998 71 258-07-22</span>
+    </div>
+    <div class="swatches">
+      <i style="background-image:var(--oak)"></i>
+      <i style="background-image:var(--oak-light)"></i>
+      <i style="background-image:var(--ash)"></i>
+      <i style="background-image:var(--cashmere)"></i>
+      <i style="background-image:var(--concrete)"></i>
+      <i style="background-image:var(--anthracite)"></i>
+    </div>
+  </div>
+</section>
+
+<!-- ============ D. КАРТА РАСКРОЯ ============ -->
+<section class="variant" id="d">
+  <div class="tag">Вариант D · «Карта раскроя» — экран сверстан как раскрой листа: кадры-детали разного размера с подписями</div>
+  <header class="head" style="mix-blend-mode:normal;color:var(--ink)">
+    <span class="logo">NAZIF DUNYO</span>
+    <nav><span>Материалы</span><span>Декоры</span><span>Услуги</span><span>Производствам</span><span>Контакты</span></nav>
+  </header>
+  <div class="cut">
+    <div class="plate">карта раскроя · лист 2800 × 2070</div>
+    <div class="grid">
+      <div class="cell c1"><span class="dim">1200 × 800 · ЛДСП</span></div>
+      <div class="cell c2"><span class="dim">600 × 700 · дуб</span></div>
+      <div class="cell c3"><span class="dim">900 × 400 · камень</span></div>
+      <div class="cell c4"><span class="dim">900 × 600 · склад</span></div>
+      <div class="cell c5"><span class="dim">600 × 500 · антрацит</span></div>
+      <div class="type">
+        <h1>ЛДСП, ЛМДФ,<br>столешницы</h1>
+        <p class="sub">Материалы для мебельного производства. Режем лист в размер по вашей карте раскроя.</p>
+      </div>
+      <div class="side mono">
+        <span class="accent">Ташкент, Сергели</span>
+        <span>Пн–Пт 9:00–18:00</span>
+        <span class="accent">+998 71 258-07-22</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

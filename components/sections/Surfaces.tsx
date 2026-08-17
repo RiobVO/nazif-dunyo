@@ -92,7 +92,7 @@ export function Surfaces() {
         </div>
 
         <div className="lg:col-span-9 lg:py-[8svh]">
-          <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:px-8 lg:flex-col lg:gap-28 lg:overflow-visible lg:px-0 lg:pb-0">
+          <div className="rail flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:px-8 lg:flex-col lg:gap-28 lg:overflow-visible lg:px-0 lg:pb-0">
             {SURFACES.map((surface, index) => (
               <SurfaceItem key={surface.title} index={index} onActive={setActive}>
                 <motion.div
@@ -119,7 +119,7 @@ export function Surfaces() {
         </div>
       </div>
 
-      <div className="sticky bottom-0 mt-6 border-t border-graphite bg-ink px-5 py-5 sm:px-8 lg:hidden">
+      <div className="safe-bottom safe-x sticky bottom-0 mt-6 border-t border-graphite bg-ink pt-5 lg:hidden">
         <span className="text-data text-core">
           0{active + 1} / 0{SURFACES.length}
         </span>

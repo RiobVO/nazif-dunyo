@@ -71,3 +71,101 @@ body {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
+/* Минимальная зона нажатия по рекомендации HIG/Material.
+   Реальная высота, а не псевдоэлемент: контейнеры с overflow-x: auto
+   (ленты декоров и поверхностей) обрезают выходящий за них ::after. */
+@utility tap {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/* Горизонтальные ленты: без полосы прокрутки и без «оттягивания»
+   страницы назад свайпом на краю ленты. */
+.rail {
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.rail::-webkit-scrollbar {
+  display: none;
+}
+
+/* Низкие экраны (SE, ландшафт телефона): первый экран ужимается,
+   иначе строка с телефоном уезжает за пределы вьюпорта. */
+@media (max-height: 720px) {
+  .hero-body {
+    padding-top: 5.25rem;
+  }
+
+  .hero-frame {
+    height: 33svh;
+  }
+
+  .hero-type {
+    margin-top: 1.25rem;
+  }
+
+  .hero-type h1 {
+    font-size: 0.86em;
+  }
+
+  .hero-lede {
+    margin-top: 0.75rem;
+  }
+}
+
+/* iPhone SE и прочие короткие экраны */
+@media (max-height: 620px) {
+  .hero-body {
+    padding-top: 4.75rem;
+  }
+
+  .hero-frame {
+    height: 27svh;
+  }
+
+  .hero-type h1 {
+    font-size: 0.76em;
+  }
+
+  .hero-lede {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 540px) {
+  .hero-shell {
+    min-height: 0;
+  }
+
+  .hero-body {
+    padding-top: 3.75rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .hero-frame {
+    height: 34svh;
+  }
+
+  .hero-type {
+    margin-top: 0.85rem;
+  }
+
+  .hero-lede {
+    display: none;
+  }
+}
+
+/* Вырезы и домашний индикатор */
+.safe-bottom {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+.safe-x {
+  padding-left: max(1.25rem, env(safe-area-inset-left));
+  padding-right: max(1.25rem, env(safe-area-inset-right));
+}

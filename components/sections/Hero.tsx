@@ -112,12 +112,12 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] flex-col bg-paper text-ink"
+      className="hero-shell relative flex min-h-[100svh] flex-col bg-paper text-ink"
     >
-      <div className="flex flex-1 flex-col justify-center pt-24 pb-6 lg:pt-28">
+      <div className="hero-body flex flex-1 flex-col justify-center pt-24 pb-6 lg:pt-28">
         <motion.div
           style={reduce ? undefined : { y: frameY }}
-          className="relative mx-auto h-[40svh] w-[92vw] overflow-hidden bg-ink lg:h-[46svh]"
+          className="hero-frame relative mx-auto h-[40svh] w-[92vw] overflow-hidden bg-ink lg:h-[46svh]"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
@@ -173,8 +173,12 @@ export function Hero() {
                 exit={reduce ? undefined : { opacity: 0, y: -10 }}
                 transition={{ duration: 0.35, ease: "easeOut" }}
               >
-                <p className="text-[15px] leading-tight text-paper">{slide.title}</p>
-                <p className="text-data mt-1 text-core">{slide.meta}</p>
+                <p className="text-[13px] leading-tight whitespace-nowrap text-paper sm:text-[15px]">
+                  {slide.title}
+                </p>
+                <p className="text-data mt-1 whitespace-nowrap text-core max-[359px]:hidden">
+                  {slide.meta}
+                </p>
               </motion.div>
             </AnimatePresence>
 
@@ -186,10 +190,14 @@ export function Hero() {
                   onClick={() => setActive(index)}
                   aria-label={`Кадр ${index + 1}: ${item.title}`}
                   aria-current={index === active}
-                  className={`h-[2px] w-8 transition-colors duration-300 ${
-                    index === active ? "bg-core" : "bg-paper/35 hover:bg-paper/70"
-                  }`}
-                />
+                  className="tap w-8 justify-center"
+                >
+                  <span
+                    className={`block h-[2px] w-full transition-colors duration-300 ${
+                      index === active ? "bg-core" : "bg-paper/35 hover:bg-paper/70"
+                    }`}
+                  />
+                </button>
               ))}
             </div>
           </div>
@@ -197,7 +205,7 @@ export function Hero() {
 
         <motion.div
           style={reduce ? undefined : { y: typeY }}
-          className="mt-7 px-5 text-center sm:px-8 lg:mt-9"
+          className="hero-type mt-7 px-5 text-center sm:px-8 lg:mt-9"
         >
           {/* Ширина в px, а не в ch: ch считается от базового кегля h1
               и схлопывал бы строки в узкую колонку */}
@@ -220,7 +228,7 @@ export function Hero() {
             initial={reduce ? undefined : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 1.15 }}
-            className="mx-auto mt-5 max-w-[54ch] text-[15px] leading-[1.6] text-ink/65 sm:text-[16px]"
+            className="hero-lede mx-auto mt-5 max-w-[54ch] text-[15px] leading-[1.6] text-ink/65 sm:text-[16px]"
           >
             Ташкент, Сергели. Держим склад плиты, режем лист в размер по вашей
             карте раскроя и подбираем декор под проект.
@@ -232,12 +240,12 @@ export function Hero() {
         initial={reduce ? undefined : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.35 }}
-        className="flex flex-col items-center justify-between gap-3 border-t border-ink/12 px-5 py-4 sm:flex-row sm:px-8 lg:px-10"
+        className="safe-bottom safe-x flex flex-col items-center justify-between gap-1 border-t border-ink/12 py-1 sm:flex-row sm:py-4 lg:px-10"
       >
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1">
           <a
             href={COMPANY.phoneHref}
-            className="text-data text-ink transition-colors duration-150 hover:text-core"
+            className="text-data tap text-ink transition-colors duration-150 hover:text-core"
           >
             {COMPANY.phone}
           </a>
@@ -246,7 +254,7 @@ export function Hero() {
 
         <a
           href="#materials"
-          className="text-data group flex items-center gap-3 text-ink/45 transition-colors duration-150 hover:text-ink"
+          className="text-data tap group hidden items-center gap-3 text-ink/45 transition-colors duration-150 hover:text-ink sm:flex"
         >
           Смотреть материалы
           <span className="relative block h-6 w-px overflow-hidden bg-ink/25">

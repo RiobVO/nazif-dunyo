@@ -24,10 +24,10 @@ export function SiteHeader() {
           solid && !open ? "bg-ink" : "bg-transparent"
         }`}
       >
-        <div className="flex items-center justify-between gap-6 px-5 py-5 sm:px-8 lg:px-10">
+        <div className="safe-x flex items-center justify-between gap-6 py-2.5 sm:py-4 lg:px-10">
           <a
             href="#top"
-            className={`text-display text-[15px] tracking-[0.16em] uppercase transition-colors duration-300 ${
+            className={`text-display tap text-[15px] tracking-[0.16em] uppercase transition-colors duration-300 ${
               onLight ? "text-ink" : "text-paper"
             }`}
           >
@@ -61,7 +61,7 @@ export function SiteHeader() {
             onClick={() => setOpen((value) => !value)}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            className={`text-data transition-colors duration-300 lg:hidden ${
+            className={`text-data tap transition-colors duration-300 lg:hidden ${
               onLight ? "text-ink" : "text-paper"
             }`}
           >
@@ -78,7 +78,7 @@ export function SiteHeader() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed inset-0 z-40 flex flex-col justify-end bg-ink px-5 pt-24 pb-10 lg:hidden"
+            className="safe-bottom safe-x fixed inset-0 z-40 flex flex-col justify-end bg-ink pt-24 lg:hidden"
           >
             <nav className="flex flex-col gap-2">
               {NAV.map((item) => (
@@ -93,7 +93,10 @@ export function SiteHeader() {
               ))}
             </nav>
             <div className="mt-10 flex flex-col gap-2">
-              <a href={COMPANY.phoneHref} className="text-data text-core">
+              <a
+                href={COMPANY.phoneHref}
+                className="text-data tap text-core"
+              >
                 {COMPANY.phone}
               </a>
               <p className="text-data text-blade">{COMPANY.hoursShort}</p>

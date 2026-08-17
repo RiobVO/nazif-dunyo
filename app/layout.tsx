@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import {
   Golos_Text,
   Inter_Tight,
@@ -34,6 +34,15 @@ const serif = Playfair_Display({
   subsets: ["latin", "cyrillic"],
   weight: ["400", "500"],
 });
+
+// viewportFit: cover — иначе на iPhone с вырезом контент не доходит
+// до краёв, а env(safe-area-inset-*) всегда возвращает 0.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#14120f",
+};
 
 export const metadata: Metadata = {
   title: "Nazif Dunyo — ЛДСП, ЛМДФ, столешницы. Ташкент",

@@ -54,18 +54,18 @@ export function Contact() {
         </p>
       </div>
 
-      <div className="relative mt-14 px-5 sm:px-8 lg:px-10">
+      <div className="safe-bottom safe-x relative mt-14 lg:px-10">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="flex flex-col gap-3 lg:flex-row lg:gap-10">
             <a
               href={COMPANY.phoneHref}
-              className="text-data border-b border-graphite pb-3 text-paper transition-colors duration-150 hover:text-core lg:border-none lg:pb-0"
+              className="text-data tap border-b border-graphite text-paper transition-colors duration-150 hover:text-core lg:border-none"
             >
               {COMPANY.phone}
             </a>
             <a
               href={COMPANY.emailHref}
-              className="text-data border-b border-graphite pb-3 text-paper transition-colors duration-150 hover:text-core lg:border-none lg:pb-0"
+              className="text-data tap border-b border-graphite text-paper transition-colors duration-150 hover:text-core lg:border-none"
             >
               {COMPANY.email}
             </a>

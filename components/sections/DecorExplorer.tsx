@@ -12,7 +12,7 @@ export function DecorExplorer() {
   const [category, setCategory] = useState<DecorCategory | "all">("all");
   const [activeId, setActiveId] = useState(DECORS[0].id);
   const tabsRef = useRef<HTMLDivElement>(null);
-  const touchStartX = useRef<number | null>(null);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
 
   const visible = useMemo(
     () =>
@@ -48,13 +48,21 @@ export function DecorExplorer() {
         <div
           className="relative flex-1 overflow-hidden border-b border-graphite lg:flex-[72]"
           onTouchStart={(event) => {
-            touchStartX.current = event.touches[0].clientX;
+            touchStart.current = {
+              x: event.touches[0].clientX,
+              y: event.touches[0].clientY,
+            };
           }}
           onTouchEnd={(event) => {
-            if (touchStartX.current === null) return;
-            const delta = event.changedTouches[0].clientX - touchStartX.current;
-            if (Math.abs(delta) > SWIPE_THRESHOLD) step(delta < 0 ? 1 : -1);
-            touchStartX.current = null;
+            if (!touchStart.current) return;
+            const dx = event.changedTouches[0].clientX - touchStart.current.x;
+            const dy = event.changedTouches[0].clientY - touchStart.current.y;
+            // Жест засчитывается только как горизонтальный: иначе обычная
+            // вертикальная прокрутка страницы перелистывала бы декоры.
+            if (Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy) * 1.5) {
+              step(dx < 0 ? 1 : -1);
+            }
+            touchStart.current = null;
           }}
         >
           <AnimatePresence mode="sync">
@@ -79,7 +87,7 @@ export function DecorExplorer() {
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-ink/60" />
 
           {/* Отступ сверху — чтобы фильтры не уходили под фиксированный хедер */}
-          <div className="absolute inset-x-5 top-20 flex gap-x-5 overflow-x-auto sm:inset-x-8 lg:inset-x-10 lg:top-24 lg:justify-end lg:overflow-visible">
+          <div className="rail absolute inset-x-5 top-20 flex gap-x-2 overflow-x-auto sm:inset-x-8 lg:inset-x-10 lg:top-24 lg:justify-end lg:gap-x-3 lg:overflow-visible">
             {DECOR_CATEGORIES.map((item) => {
               const selected = item.id === category;
               return (
@@ -88,7 +96,7 @@ export function DecorExplorer() {
                   type="button"
                   onClick={() => selectCategory(item.id)}
                   aria-pressed={selected}
-                  className={`text-data shrink-0 pb-1 transition-colors duration-150 ${
+                  className={`text-data tap shrink-0 px-2 pb-1 transition-colors duration-150 ${
                     selected
                       ? "border-b border-core text-core"
                       : "border-b border-transparent text-paper/70 hover:text-paper"
@@ -162,7 +170,7 @@ export function DecorExplorer() {
                 step(-1);
               }
             }}
-            className="mt-5 flex gap-3 overflow-x-auto pb-1 lg:mt-6 lg:gap-4"
+            className="rail mt-5 flex gap-3 overflow-x-auto pb-1 lg:mt-6 lg:gap-4"
           >
             {visible.map((decor) => {
               const selected = decor.id === active.id;
@@ -187,7 +195,7 @@ export function DecorExplorer() {
                     src={decor.texture}
                     sizes="160px"
                   />
-                  <span className="text-data absolute inset-x-0 bottom-0 truncate bg-ink/80 px-1 py-1 text-[9px] text-paper/80">
+                  <span className="text-data absolute inset-x-0 bottom-0 truncate bg-ink/85 px-1 py-1 text-[11px] text-paper/90">
                     {decor.id}
                   </span>
                 </button>
